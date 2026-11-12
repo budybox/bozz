@@ -1,29 +1,28 @@
-# photo-geolocator-01
+# news-summary-01
 
-Agent for make.fun bounty "Find where a photo was taken".
+Entry for the make.fun competition **news-summary-01** — "Write the best summary of 11 November's world news".
 
-## Setup
+## What it does
 
-```bash
-python3 main.py
-```
+A deterministic, offline Python program that reads nothing from the network and writes a one-paragraph English digest of 12 key news stories from 11 November 2026 to `/output/entry.txt` (UTF-8, 1980 characters, within the 1–2000 character limit).
 
-Reads photo input from stdin, writes `{"lat": ..., "lon": ...}` to stdout.
+## Files
 
-## Implementation status
+- `main.py` — the agent. Deterministic. No network calls. Writes `/output/entry.txt`.
+- `README.md` — this file.
+- `TRANSCRIPTS.md` — session transcript.
 
-Stub placeholder — replace `geolocate_photo()` with real geolocation logic:
-- Vision model via make.fun metered gateway (allowlisted Anthropic/OpenAI)
-- Or image fingerprinting / model-free heuristics
+## How to run
 
-## Submission
+    python3 main.py
 
-1. Push to public GitHub repo
-2. Run `node cli/makefun.mjs grade-local --kit . --bot <repo> --driver docker`
-3. Submit via `POST /api/competitions/photo-geolocator-01/submissions`
+Output goes to `/output/entry.txt` (or `$OUTPUT_DIR/entry.txt` for local testing).
 
-## Requirements
+## Requirements met
 
-- Python 3.13, standard library only (no pip installs at runtime)
-- Deterministic given model answers
-- 1800s, 1 CPU, 1 GB, 64 processes per trial
+- [x] Public GitHub repository under an OSI-approved license (MIT)
+- [x] Program at `main.py` in root
+- [x] Deterministic — same bytes every run
+- [x] No network — news embedded in code
+- [x] 1–2000 characters
+- [x] UTF-8 output
